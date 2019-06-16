@@ -1,0 +1,26 @@
+print("***Ogrenci Not Ortalama Alma Programi***")
+ad=input("Adiniz\t\t:")
+soyad=input("Soyadiniz\t:")
+vize=int(input("Vize Notunuz\t:"))
+final=int(input("Final Notunuz\t:"))
+devamsizlik=int(input("Devamsizlik\t:"))
+vize_notu= (vize*30)/100
+final_notu= (final*50)/100
+devamsizlik_notu= ((100-(devamsizlik*5))*20)/100
+ortalama=vize_notu+final_notu+devamsizlik_notu
+print("Not Ortalamaniz\t:",vize_notu,"+",final_notu,
+      "+",devamsizlik_notu,"=",ortalama, sep="")
+
+dosya=open("ogrenci not ortalamasi.txt", "w")
+print("adi\t\t\t\t:",ad, file=dosya)
+print("soyadi\t\t\t:",soyad,file=dosya)
+print("vize notu\t\t\t:",vize,file=dosya)
+print("final notu\t\t\t:",final,file=dosya)
+print("devamsizlik\t\t:",devamsizlik,file=dosya)
+print("Yil somu ortalama\t:",ortalama,file=dosya)
+dosya.close()
+
+
+
+
+input()
