@@ -1,0 +1,26 @@
+print("***Aylik Masraf Programi***")
+gelir=int(input("Aylik Gelirinizi Giriniz\t:"))
+a=mutfak=int(input("Mutfak masrafinizi girniz\t:"))
+b=egitim=int(input("Egitim masrafinizi giriniz\t:"))
+c=giyim=int(input("Giyim masrafinizi giriniz\t:"))
+d=ulasim=int(input("Ulasim masrafinizi giriniz\t:"))
+e=toplam_masraf=a+b+c+d
+f=gider_gelir_orani=gelir/toplam_masraf
+print("_"*50)
+print("Aylik toplam gideriniz\t\t:",toplam_masraf, sep="")
+print("Gider/Gelir Orani\t\t:",gider_gelir_orani, sep="")
+
+dosya=open("aylik masraf.txt", "w")
+print("Aylik Gelir\t\t:", gelir,
+      "\nMutfak masrafi\t\t:",a,
+      "\nEgitim masrafi\t\t:",b,
+      "\ngiyim masrafi\t\t:",c,
+      "\nUlasim masrafi\t\t:",d,
+      "\n","-"*50,
+      "\nToplam masraf\t\t:",e,
+      "\nGider/Gelir orani\t:",f,file=dosya, sep="")
+dosya.close()
+
+
+input()
+    
