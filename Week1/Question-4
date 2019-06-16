@@ -1,0 +1,23 @@
+print("### Faiz Hesaplama Programi ###")
+ana_para=int(input("Ana Para Miktarini Giriniz($)\t:"))
+faiz_suresi=int(input("Faiz Suresini Giriniz(yil)\t:"))
+faiz_orani=float(input("Faiz Oranini Giriniz(%)\t\t:"))
+faiz_tutari=(ana_para*faiz_suresi*faiz_orani)/100
+aylik_faiz=faiz_tutari/(12*faiz_suresi)
+gunluk_faiz=faiz_tutari/(365*faiz_suresi)
+toplam_para=ana_para+faiz_tutari
+print("Odenmesi Gereken Faiz Miktari\t:",faiz_tutari,sep="")
+print("Aylik Faiz Miktari\t\t:", aylik_faiz,sep="")
+print("Gunluk Faiz Miktari\t\t:", gunluk_faiz,sep="")
+print("Toplam Odenecek Miktar\t\t:",toplam_para,sep="")
+
+dosya=open("Faiz Hesaplam.txt","w")
+print("Talep Edilen Miktar\t\t\t:",ana_para,
+      "\nGeri Odeme Suresi \t\t\t:", faiz_suresi,
+      "\nUygulanacak Faiz Orani\t\t:",faiz_orani,
+      "\nOdenecek Toplam Faiz\t\t\t:",faiz_tutari,
+      "\nAylik Faiz Miktari\t\t\t:",aylik_faiz,
+      "\nGunluk Faiz Miktari\t\t\t:",gunluk_faiz,
+      "\nToplam Odenecek Miktar\t\t:",toplam_para,file=dosya)
+dosya.close()
+input()
