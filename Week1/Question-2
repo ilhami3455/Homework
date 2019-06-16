@@ -1,0 +1,5 @@
+print("*** Kilometreyi Mil'e Cevirme Programi***")
+a=int(input("Lutfen bir deger girin:"))
+mil= (a*0.62137119223733)
+print(a, "km", mil,"mil'dir")
+input()
