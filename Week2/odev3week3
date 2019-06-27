@@ -1,0 +1,38 @@
+giris="""
+<<<<<<< Lutfen bir Kullanici Adi ve Parola olusturunuz >>>>>>>>
+!!!!!!! Dikkat edilmesi gereken noktalar:!!!!!!!!
+    - Kullanici adiniz 3 karakterden fazla, 18 karekterden az olmali.
+    - Kullanici adiniz sadece buyuk ve kucuk harflerden olusabilir.
+    - Parolaniz 6 karakterden fazla, 12 karekterden az olmali.
+"""
+print(giris)
+karakter=("ABCDEFGHIJKLMNOPRQSTUXWVYZabcdefghijklmnoprqstuxwvyz")
+while True:
+    kullanici_adi=input("Bir Kullanici Adi Giriniz\t:")
+    uzunluk=len(kullanici_adi)
+    if uzunluk<=3 or uzunluk>=18:
+        print("Kullanici adiniz istenilen karakter araliginda degildir!")
+        continue
+    
+    for icerik in kullanici_adi:
+        if not icerik in karakter:
+                print("kullanici adiniz sadece harflerden olusabilir.")
+                break
+    else:
+        break
+while True:
+    parola=input("Lutfen bir parola giriniz\t:")
+    par_uzunluk=len(parola)
+    if par_uzunluk<6 or par_uzunluk>12:
+        print("Parolaniz istenilen karakter araliginda degildir!")
+    else:
+        print("Kullanici adiniz\t:",kullanici_adi)
+        print("Parolaniz\t\t:",parola)
+        print("Bilgileriniz sistemimize basariyla kayit edilmistir.")
+        break
+dosya=open("kullanici bilgileri.txt","w")
+print("****KULLANICI BILGILERINIZ****", file=dosya)
+print("Kullanici adi\t:", kullanici_adi, file=dosya)
+print("Parola\t\t:", parola, file=dosya)
+dosya.close()
+
