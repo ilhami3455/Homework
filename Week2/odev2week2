@@ -1,0 +1,24 @@
+giris="""
+***(1) Km'yi Mil'e cevirmek:
+***(2) Mil'i Km'ye cevirmek:"""
+print(giris)
+print(len(giris)*"_")
+while True:
+    soru=input("Yapmak istediginiz cevirme isleminin numarasini yaziniz:")
+    if soru=="q":
+        print("Program kapaniyor...")
+        quit()
+    elif soru=="1":
+        deger=float(input("Lutfen bir deger giriniz:"))
+        print(" "*60)
+        print(deger,"km",round((deger*0.62137119223733),3),"mil'dir.")
+        print("_"*60)
+    elif soru=="2":
+        deger=float(input("Lutfen bir deger giriniz:"))
+        print(" "*60)
+        print(deger,"mil",round((deger/0.62137119223733),3),"km'dir.")
+        print("_"*60)
+    else:
+        print("Lutfen girdiginiz degeri kontrol ediniz.")
+        print("_"*60)
+
