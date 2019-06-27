@@ -1,0 +1,25 @@
+print("#### Sayi Tahmin Oyununa Hosgeldiniz ####")
+print("Lutfen 1 ile 10 arasinda bir sayi tahmin edin.")
+sayi=6
+tahmin=int(input("Tahmininiz:"))
+if tahmin==sayi:
+    print("Bravo 3 (***) yildiz kazandiniz.")
+elif tahmin!=sayi:
+    tahmin1=int(input("Yanlis tahmin! Tekrar sayi giriniz:"))
+    if tahmin1==sayi:
+        print("Bravo 2 (**) yildiz kazandiniz.")
+    elif tahmin1!=sayi:
+        tahmin2=int(input("Yanlis tahmin! Tekrar sayi giriniz:"))
+        if tahmin2==sayi:
+            print("Bravo 2 (**) yildiz kazandiniz.")
+        elif tahmin2!=sayi:
+            tahmin3=int(input("Yanlis tahmin! Tekrar sayi giriniz:"))
+            if tahmin3==sayi:
+                print("Bravo 1 (*) yildiz kazandiniz.")
+            elif tahmin3!=sayi:
+                tahmin4=int(input("Yanlis tahmin! Tekrar sayi giriniz:"))
+                if tahmin4==sayi:
+                    print("Bravo 1 (*) yildiz kazandiniz.")
+                elif tahmin4!=sayi:
+                    print("Oyun Bitmistir!Ne yazikki hic yildiz kazanamadiniz:")
+input()
