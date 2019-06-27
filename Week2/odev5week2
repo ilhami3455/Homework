@@ -1,0 +1,28 @@
+print(" \t**ATM** ")
+print(""" Islemler:
+(1) Para Yatirma
+(2) Para Cekme
+(3) Bakiye Kontrol""")
+bakiye=1000
+while True:
+    islem=input("Bir islem yapmak icin seciminizi yapiniz, cikmak icin 'q' ya basiniz:")
+    if islem=="q":
+        print("Program kapatiliyor...")
+        quit()
+    elif islem=="1":
+        yatirilacak_tutar=int(input("yatirmak istediginiz tutari giriniz:"))
+        bakiye+=yatirilacak_tutar
+        print("Yeni bakiyeniz:",bakiye)
+    elif islem=="2":
+        cekilecek_tutar= int(input("cekmek istediginiz tutari giriniz:"))
+        if cekilecek_tutar>bakiye:
+            print("Ne yazikki isleminizi yapamiyoruz, yetersiz bakiye.")
+        else:
+            bakiye-=cekilecek_tutar
+            print("Yeni bakiyeniz:",bakiye)
+    elif islem=="3":
+        print("Bakiyeniz:",bakiye)
+    else:
+        print("Lutfen dogru bir tercih yapiniz.")               
+    
+input()
