@@ -1,0 +1,68 @@
+##4.ODEV: ALAN-HACIM HESAPLAMA
+##    Karenin, ucgenin ve diktortgenin alanlarini hesaplayan, kup,kure ve koni
+##    seklinde olan cisimlerin hacmini hesaplayan bir program yazmanizi istiyoruz.
+##    Kullanicidan hangi seklin alanini veya hangi sekildeki cismin hacmini
+##    hesaplamak istedigini sormalisiniz ve o islem icin gereken verileri isteyip
+##    hesaplamayi yapmalisiniz. Tum bu islemleri yaparken hata alinabilecek
+##    durumlari ongorerek gerekli onlemleri almalisiniz.
+
+##karenin alani = a**2
+##ucgenin alani = (h*taban)/2
+##diktorgen alan = a*b
+##kupun hacmi = a**3
+##kure hacim = 4/3 pi * r**3
+##koni hacim = pi* r**2 * h/3
+
+print("""
+///////////////////  HACIM VE ALAN HESAPLAM \\\\\\\\\\\\\\\\\\\\\\\\\\
+Programimiz size listede verilen islemleri yapmanizda yardimci olabilir.
+Lutfen verilen liste disindan baska secim yapmayiniz!!!
+(1) Kare Alan Hespalama
+(2) Ucgen Alan Hesaplama
+(3) Dikdortgen Alan Hesaplama
+(4) Kup Hacim Hesaplama
+(5) Kure Hacim Hesaplama
+(6) Koni Hacim Hesaplama""")
+while True:
+    try:
+        secim=int(input("Lutfen yapmak istediginiz islem numarasini giriniz:"))
+        if secim==1:
+            kenar_uzunluk=float(input("Karenin kenar uzunlugunu giriniz:"))
+            kare_alan=kenar_uzunluk**2
+            print("Degerlerini verdiginiz kareni alani:",round(kare_alan,2),"cm2'dir")
+            break
+        elif secim==2:
+            yukseklik=float(input("Ucgenin yuksekligini giriniz:"))
+            taban_uzunluk=float(input("Girilen yuksekligin dik kesistigi taban uzunlugunu giriniz:"))
+            ucgen_alan=(yukseklik*taban_uzunluk)/2
+            print("Degerlerini verdiginiz ucgenin alani:", round(ucgen_alan,2), "cm2'dir.")
+            break
+        elif secim==3:
+            kisa_kenar=float(input("Dikdortgenin kisa kenar uzunlugunu giriniz:"))
+            uzun_kenar=float(input("Dikdortgenin uzun kenar uzunlugunu giriniz:"))
+            dik_alan=kisa_kenar*uzun_kenar
+            print("Degerlerini verdiginiz dikdortgenin alani:", round(dik_alan,2), "cm2'dir.")
+            break
+        elif secim==4:
+            kkenar_uzunluk=float(input("Kupun kenar uzunlugunu giriniz:"))
+            kup_hacim=kkenar_uzunluk**3
+            print("Degerlerini verdiginiz kupun hacmi:", round(kup_hacim,2), "cm3'dur.")
+            break
+        elif secim==5:
+            pi=22/7
+            cap=float(input("Kurenin capini giriniz:"))
+            kure_hacim = 4/3*(pi*((cap/2)**3))
+            print("Degerlerini verdiginiz kurenin hacmi:", round(kure_hacim,2), "cm3'dur.")
+            break
+        elif secim==6:
+            pi=22/7
+            cap=float(input("Koninin taban daire capini giriniz:"))
+            yyukseklik=float(input("Koninin yuksekligini giriniz:"))
+            koni_hacim = (pi*((cap/2)**2))*yyukseklik/3
+            print("Degerlerini verdiginiz koninin hacmi:", round(koni_hacim,2), "cm3'dur.")
+            break
+        else:
+            print("Lutfen verilen listeden bir secim yapiniz!")                 
+    except ValueError:
+        print("Lutfen seciminizi aciklama kismini okuyarak tekrar yapiniz:")
+    
