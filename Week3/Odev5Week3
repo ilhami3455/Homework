@@ -1,0 +1,23 @@
+##5.ODEV: FIZZ BUZZ
+##    1'den 100'e kadar sayilari yazdirin. Fakat 3'e tam bolunen sayilarin yerine
+##    FIZZ, 5'e tam bolunen sayilarin yerine BUZZ, hem 3'e hem de 5'e tam
+##    bolunebilen sayilarin yerine FIZZBUZZ yazsin.
+
+a=1
+while a<101:
+    bolme=a%3
+    bolme1=a%5
+    if bolme==0 and bolme1==0:
+        print("FIZZBUZZ")
+    elif bolme==0:
+        print("FIZZ")
+    elif bolme1==0:
+        print("BUZZ") 
+    else:
+        print(a)
+    a+=1
+# a degiskeni donguyu belli bir yere kadar calistirmak icin kullanildi.
+# while a<101: buda dongunu a sayisinin 100 oldugu yere kadar calismasi saglandi.
+# kullanilan bolme ve bolme1 degiskenleri sayinin 3 ve 5 ile kalanlarinin degerini alir.
+# ikisi de sifirsa bu ortak bolunen yani 15 in katlari oldugundan o duruma fizzbuzz yazdirdik.
+
