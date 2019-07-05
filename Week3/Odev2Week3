@@ -1,0 +1,52 @@
+##2.ODEV: SAYI TAHMIN OYUNU
+##    Bir degiskene 0-100 arasinda bir deger atayin.
+##    Kullanicidan bu sayiyi tahmin etmesini isteyin.
+##    Kullaniciyi yaptigi tahminlere gore yonlendirin.
+##    Kacinci denemede bildigini soyleyin.
+##    Ornek:
+##        sayi = 76
+##        kullanicinin tahmini = 5
+##        cikti = cok dusuk tahminde bulundun daha yuksek bir sayi girmelisin.
+##        kullanicinin tahmini = 95
+##        cikti = fazla yukari ciktin biraz asagi in.
+##        kullanicinin tahmini = 80 
+##        cikti = cok yaklastin biraz daha inmelisin
+##        kullanicinin tahmini = 73
+##        cikti = cok yaklastin biraz daha cikmalisin
+##        kullanicinin tahmini = 76
+##        cikti= tebrikler sayiyi 5.denemede buldunuz
+print("""
+________________ SAYI TAHMIN OYUNU ____________________
+Oyun kurallari:
+-Bilgisayar kendi bir sayi belirler.
+-Bu sayi 1 ile 100 arasindadir.
+-Oyuncuya sinirsiz tahmin hakki verilir.
+-Yanlis tahminde bilgisayar daha buyuk veya kucuk sayi tahmin etmenizi soyler.
+-Sonuc olarak oyuncuya kacinci tahmininde sayiyi bildigi gosterilir.
+<<<<<<<<<<<<<<<< BOL SANS >>>>>>>>>>>>>>>>>>>>""")
+sayi=49
+sayac=1
+tahmin_sayisi=0
+# while dongusu ile programin devamliligini sagladim.
+#try except ilede kullanicinin sadece rakam girmesi gerektigi aksi takdirde program hatasi almasini engellendi.
+while True:
+    try:
+        if sayac==1:
+            tahmin=int(input("Bir tahminde bulununuz:"))
+            tahmin_sayisi+=1
+            if sayi==tahmin:
+                print(tahmin_sayisi, "denemede bildiniz.")
+                break
+            elif sayi>tahmin and 0<tahmin<101:
+                print("Lutfen daha buyuk bir sayi tahmininde bulununuz.")
+            elif sayi<tahmin and 0<tahmin<101:
+                print("Lutfen daha kucuk bir sayi tahmininde bulununuz.")
+            elif 0>tahmin or tahmin>101:
+                print("Lutfen 1 ile 100 arasinda bir sayi giriniz.")
+    except ValueError:
+        print("lutfen sadece sayi giriniz:")
+        continue
+
+input()
+    
+            
