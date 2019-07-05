@@ -1,0 +1,67 @@
+##1.ODEV: HESAP OLUSTURMA
+##Kullanicidan, kullanici adi ve parola olusturarak hesap olusturmasini isteyin.
+##Bu aldiginiz bilgileri bir dosyaya yazdirin.
+##Her gırıste dosyadakı bılgıler sıfırlanmasın kayıt bılgılerı dosyaya eklenmeye devam etsın.
+##Kullanici daha once girilmis olan bir kullanici adiyla hesap olusturmak isterse,
+##bu kullanici adinin daha once secildigini ve baska bir kullanici adiyla hesap olusturmasini isteyin.
+print("""
+            <<<<<<< HOSGELDINIZ >>>>>>>>
+Sisteme giris yapabilmek icin bir hesap olusturmalisiniz.
+Devam etmek icin 'd' ye cikmak icin 'c' ye basiniz""")
+# Sayac degiskenleri dongulerden cikmak icin kullanildi.
+# ilk dongu programdan cikmak veya devam etmek icin kullanildi.
+sayac1=1
+sayac=1
+while True:
+    secim=input("Seciminiz:")
+    if secim=="c":
+        print("tekrar bekleriz...")
+        quit()
+    elif secim=="d":
+        sayac1+=1
+        break
+    else:
+        print("Yanlis secim yaptiniz.")
+        continue
+# try except'i sadece excepti kullanarak her turlu hatayi engellemis olduk.
+# yine iki farkli while dongusu kullanilarak birinde kullanici adi digerinde parola olusturulmasi istendi.
+if sayac1==2:
+    try:
+        while True:
+            kullanici_adi=input("Kullanici adi giriniz:")
+            if kullanici_adi=="":
+                print("kullanici adi bos olamaz:")
+                continue
+            elif sayac==1:
+                dosya=open("Bilgiler.txt","a+")
+                dosya.seek(0)
+                satirlar=dosya.readlines()
+                for icerik in satirlar:
+                    if kullanici_adi in icerik:
+                        sayac+=1
+                if sayac>1:
+                    print("bu kullanici adi zaten kullaniliyor.")
+                    sayac=1
+                    continue         
+                else:
+                    while True:
+                        parola=input("Bir Parola giriniz:")
+                        if parola=="":
+                            print("parola bolumunuz bos olamaz:")
+                            continue
+                        else:
+                            print("\n",kullanici_adi,"\t",parola, file=dosya)
+                            dosya.close()
+                            print("Hesabiniz olusturuldu.")
+                            break
+                    break
+
+    except:
+        print("Bir hata olustu:")
+                
+    
+
+
+
+
+
