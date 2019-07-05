@@ -1,0 +1,32 @@
+##3.ODEV: LISTE AYIKLAMA
+##    Ekte gonderilmis olan text dosyasinda 3 takimin futbolcularinin isimleri ve
+##    takimlari yer almaktadir. Sizden 3 tane dosya olusturmanizi ve bu 3
+##    dosyaya futbolculari takimlarina gore ayirmanizi istiyoruz. Ayrica kaynak
+##    dosyanin bulunamamasi durumunda da gerekli uyariyi yapmalisiniz.
+
+#try except ile olusacak dosya bulamama hatasini engellendi.
+# with open ......as ilede programin dosyayi otomatik kapatmasi saglandi.
+try:
+    fbh="Fenerbahçe"
+    gsy="Galatasaray"
+    bjks="Beşiktaş"
+    with open("futbolcular.txt","r")as dosya:
+# futbolcular dosyasi "r" modunda acildi cunku bu dosyayi sadece okumak istiyoruz.
+# digerli ise "w" modunda cunku onlara bazi bilgileri yazmak istendi.
+# for donguleriyle futbolcular dosyasindaki icerik "line" degiskenine aktarildi ve gereken yerde kullanildi
+        with open("Fenerbahce.txt","w") as fb:
+            for line in dosya:
+                if fbh in line:
+                    fb.write(line)
+                elif  not fbh in line:
+                    with open("Galatasaray.txt","w") as gs:
+                        for line in dosya:
+                            if gsy in line:                           
+                                gs.write(line)
+                            elif not gsy in line:
+                                with open("Besiktas.txt","w") as bjk:
+                                    for line in dosya:
+                                        if bjks in line:
+                                            bjk.write(line)                                       
+except FileNotFoundError:
+    print("dosya bulunumadi")
