@@ -1,0 +1,28 @@
+##6.ODEV: ASAL SAYI MI?
+##    Kullanicidan aldiginiz sayinin asal sayi olup olmadigini sorgulayan
+##    bir program yazmanizi istiyoruz.
+
+while True:
+    try:
+        sayac=1
+        sayi=int(input("Bir sayi giriniz:"))
+        if sayi==0 or sayi==1 or sayi<0:
+# burada kullanici sayi 0,1 veya negatif sayi girerse ne yapmasi gerektigini belirttik.
+# cunku asal sayilar ikiden baslar o yuzdende boyle bir pirint ekledik.
+            print("Lutfen 2 den buyuk pozitif bir sayi giriniz.")
+            continue
+        else:
+            for bolen in range(2,sayi):
+                if (sayi%bolen==0):
+                    print(sayi,"asal sayi degildir.")
+                    sayac=0
+                    break
+# burdaki for dongusen 2 den baslanip girilen sayiya kadar bir dongu olusturuldu
+# ve bu sayilar girilen sayiya bolunde ve herhangi bi bolumde kalan sifir oluyorsa sayi asal degildir denildi.
+            if sayac==1:
+                print(sayi,"asal sayidir.")
+                sayac=0
+                break
+    except ValueError:
+        print("Lutfen sadece sayi giriniz!")
+# yine try except ile sayi disinda bir sey girilmesini engelledik.
