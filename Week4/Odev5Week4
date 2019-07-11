@@ -1,0 +1,10 @@
+##5-)Futbolcular dosyasındaki futbolcu isimlerini yazdığınız program ile
+##Türkçe karakter içermeyecek bir hale getirip yeni bir dosyaya kaydediniz.
+
+kaynak = "şçöğüıŞÇÖĞÜİ"                                 # degismesini istedigimiz harfler kaynak degiskende olusturuldu
+hedef = "scoguiSCOGUI"                                  # bu harflerin hangi harfe donusecegi hedef degiskeni olusturuldu
+ceviri=str.maketrans(kaynak,hedef)                      # str.maketrans ile degisimi baslattik
+with open("futbolcular.txt","r") as dosya:              # futbolcular dosyasi acildi ve read moduyla tum veri okundu.
+    metin=dosya.read()                                  # okunan butun veri metin degiskenine atandi
+    with open("turkce karekteri yok.txt","w") as tr:    # yeni bir dosya olusturuldu 
+        tr.write(metin.translate(ceviri))               # ve degisim translate ile tamamlanip dosyaya kayit yapildi.
