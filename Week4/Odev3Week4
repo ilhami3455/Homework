@@ -1,0 +1,14 @@
+##3-)Kullanıcıdan bir input alınız. Girmiş olduğu inputtaki rakamların
+##toplamını veren bir program yazınız. (Kullanıcı rakam girmek zorunda değil.
+##farklı karakter girişi de yapabilir.)
+##Örnek input = "art12kl4*"
+try:
+    metin=input("Bir metin giriniz:")                   # kullanicidan kelime ve harflerden olusan bir metin istendi.
+    rakam=("123456789")                                 # sadece rakamlardan rakam degiskeni olusturuldu.
+    toplam=0                                            # 0 degeri olan bir toplam degiskeni olusturuldu.
+    for i in metin:                                     # for dongusuyle metindeki her karekter i dosyasina aktarildi.
+        if i in rakam:                                  # if ile i degiskenindeki her karakter rakam degiskeniyle eslestirildi
+            toplam+=int(i)                              # eslesen karakter toplam a eklenip yeniden toplam degiskeni olusturuldu.
+    print("Metindeki rakamlarin toplami:",toplam)       # toplam ekrana bastirildi
+except:
+    print("Bir hata olustu!!!")
