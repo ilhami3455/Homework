@@ -1,0 +1,33 @@
+##2-)Kullanıcıdan bir input alınız. Girmiş olduğu inputta büyük harf sayısı,
+##küçük harf sayısı, rakam sayısı ve bunların haricindeki
+##özel karakter sayılarını veren bir program yazınız.
+try:                                                        # try except ile olusabilecek hatalarin onun gecildi.  
+    metin=input("Lutfen bir metin giriniz:")                # kullanicidan bir input alindi.
+    kucuk_harfler="abcçdefgğhıijklmnoöqprsştuüwxvyz"
+    buyuk_harfler="ABCÇDEFGĞHIİJKLMNOÖQPRSŞTUÜWXVYZ"
+    rakam="0123456789"                                      # kucuk, buyuk ve rakam iceren degiskenler olusturuldu.            
+    k_h_sayisi=0
+    b_h_sayisi=0
+    rakam_sayisi=0
+    digerleri=0
+    bosluk=0                                                # toplam sayisini istedigimiz karakterler icin basta degeri sifir olan degiskenler atandi
+    for karakter in metin:                                  # for dongusuyle kullanicinin girdigi metindeki her karakter bir karakter degiskeninin iceni alindi.
+        if karakter in kucuk_harfler:                       # if, elif ve else bloklariyla her bir karakter kendi bulundugu degiskenin icine konuldu.
+            k_h_sayisi+=1                                   # ve her karakter konuldugunda sayma degiskenleri 1 artitildi
+        elif karakter in buyuk_harfler:
+            b_h_sayisi+=1
+        elif karakter in rakam:
+            rakam_sayisi+=1
+        elif " " in karakter:
+            bosluk+=1
+        else: 
+            digerleri+=1
+    print(" kucuk harf sayisi\t:",k_h_sayisi,"\n",          # toplam karakter sayilarini tutan degiskenler burada ekrana yazdirildi bosluk karakteri haric.
+          "buyuk harf sayisi\t:",b_h_sayisi,"\n",
+          "rakam sayisi\t\t:",rakam_sayisi,"\n",
+          "diger karakter sayisi\t:",digerleri,"\n",
+          "kullanilan bosluk\t:",bosluk)
+except:
+    print("Bir hata olustu!!!")
+
+input()
