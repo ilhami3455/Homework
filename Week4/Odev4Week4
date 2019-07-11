@@ -1,0 +1,10 @@
+##4-)Futbolcular dosyasındaki futbolculardan ismi sesli harf ile başlayanları
+##ayrı bir dosyaya yazdırınız.
+
+with open("futbolcular.txt","r") as dosya:          # futbolcular dosyasi acildi ve dosya degiskenine bilgiler aktarildi.
+    with open("Sesli harfler.txt","w") as liste:    # yeni dosya olusturuldu ve "w" modunda icine veri aktarmamiz saglandi.
+        for line in dosya:                          # dosyanin icindekiler line adli degiskene aktarildi.
+            if line.startswith("A") or line.startswith("E")or line.startswith("İ") or line.startswith("I") or line.startswith("O") or line.startswith("Ö") or line.startswith("U") or line.startswith("Ü"):
+                liste.write(line)
+                                                    # if dosyasindaki startswith metodu ile her satirin ilk harfi kontrol edildi
+                                                    # ve sesli harf ile baslayanlar sesli harfler dosyasina yazdirildi.
