@@ -1,0 +1,22 @@
+##1-)Kullanıcıdan bir input alınız. Input'taki küçük harfleri büyük
+##harfe dönüştüren bir program yazınız.
+##Ör input: Hello World! 
+##Ör output: HELLO WORLD!
+
+while True:                                             # bir dongu olusturuldu programin devamliligi saglandi
+    try:                                                # olusabilcek hatalar try except ile engellendi
+        print("Cikmak icin 'cikis' yaziniz")
+        metin=input("Lutfen bir metin giriniz:\n")
+        kapat=metin.lower()                             # girilen metindeki tum karakterler kucuk harfe donusturuldu.
+        if kapat=="cikis":
+            print("program kapatiliyor...")             # burada kullanici cikmak isterse cikis kelimesini her turlu buyuk kucuk harf versiyonunda yazabilir.
+            quit()                                      # cunku bir ust satirda biz gelen veriynin hepsini kucuk harf moduna cevirdik lower() ile.
+        else:      
+            metin=metin.replace("i","İ").upper()        # eyer kullanici cikis yazmamissa program else okuyacak ve metni tamamen buyuk harflerden yazacak.
+            print(metin)                                # burada replace metodu turkce karakteri olan buyuk i harfini her durumda "İ" cevirmesini sagladik.
+            print("-"*len(metin))                       # burada kullanici birdan fazla giris yaparsa metinleri birbirinden ayirmak icin cizgi kullandik.
+    except:
+        print("Bir hata olustu!!!")
+        print("Lutfen tekrar metin giriniz:\n")
+
+    
