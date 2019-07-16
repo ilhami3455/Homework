@@ -1,0 +1,31 @@
+# İki liste tanımlayın.
+# İlk liste 1'den 10'a kadar sayılardan oluşturun.
+# İkinci listeyi sırasıyla a'dan başlayarak 10 harf ile oluşturun.
+# İki liste için de döngü kurup, iki listenin elemanlarının bütün kombinasyonlarından oluşan iki yeni liste oluşturun.
+
+# 3'er elemanli versiyonunda cıktı olarak bu şekilde bir çıktı beklenmektedir:
+
+# 1. [1a, 1b, 1c, 2a, 2b, 2c, 3a, 3b, 3c]
+# 2. [a1, a2, a3, b1, b2, b3, c1, c2, c3]
+rakam="0123456789"
+rakamlar=list(rakam)
+harf="abcdefghij"
+harfler=list(harf)
+
+##  YOL-1
+liste1=[x+y for x in rakamlar for y in harfler]
+liste2=[y+x for y in harfler for x in rakamlar]
+print("liste1:", *liste1, end="\n"*2)
+print("liste2:", *liste2, end="\n"*2)
+
+##  YOl-2
+liste1=[]
+for x in rakam:
+    for y in harf:
+        liste1+=[x+y]
+print("liste1:",*liste1, end="\n"*2)
+liste2=[]
+for x in harf:
+    for y in rakam:
+        liste2+=[x+y]
+print("liste2:",*liste2)
