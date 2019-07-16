@@ -1,51 +1,90 @@
-print(""" SAYI TAHMIN OYUNU  """)
-print(""" Oyun Kurallari:
-- Dort basamakli bir sayi tahmin edilmeli.
-- Sayi '0'(sifir) iceremez.
-- Sayi ayni rakam iceremez.""")
+baslik="ADAM ASMACA OYUNU"
+print(baslik.center(80,"*"))
+kelime="eindhoven"
+kelimelist=list(kelime)
+bul_kelime=[]
+sayac=6
+harflist=[]
+bitis=0
+for karakter in range(len(kelimelist)):
+    bul_kelime+="_"
 
-sayi="4279"
-sayiliste=list(sayi)
-try:
-    while True:
-        degerD_yerD=0
-        degerD_yerY=0
-        tahmin=input("Tahmininiz:")
-        if not tahmin.isdigit():
-            print("Lutfen sayi giriniz!!!")
-            continue
-        if len(tahmin)!=4:
-            print("Lutfen dort basamakli bir sayi giriniz.",end="\n")
-            continue
-        elif "0" in tahmin:
-            print("Lutfen '0' icermeyen bir sayi giriniz.",end="\n")
-            continue
-        else:
-            tahminlistesi=list(tahmin)
-            sayac=0
-            for bir in range(4):
-                for iki in range(4):
-                    if bir!=iki:
-                        if tahminlistesi[bir]==tahminlistesi[iki]:
-                            sayac=1
-            if sayac==1:
-                print("Sayiniz ayni rakam iceremez.",end="\n")
-                continue
-            else:
-                sayac1=0
-                for uc in range(4):
-                    for dort in range(4):
-                        if tahminlistesi[uc]==sayiliste[dort]:
-                            if uc==dort:
-                                degerD_yerD+=1
-                            else:
-                                degerD_yerY+=1
-                if tahmin==sayi:
-                    print("TEBRIKLER!!!")
-                    break
-                else:
-                    print("dogru deger ve yer:+",degerD_yerD,"dogru deger yanlis yer:-",degerD_yerY,end="\n")              
-except ValueError:
-    print("Lutfen rakam giriniz:")
-
- 
+while sayac>0:
+    print("\n","\t".expandtabs(20),*bul_kelime, sep="   ")
+    harf=input("\nLutfen bir harf tahmin ediniz.")
+    harflist+=harf
+    print("Harflistesi(",*harflist,")",sep="  ")
+    if harf.isdigit():
+        print("Lutfen sadece harf giriniz!!!")
+        continue
+    if harf.isalpha():
+        for i in range(len(kelimelist)):
+            if kelimelist[i]==harf:
+                bul_kelime[i]=kelimelist[i]
+            elif bul_kelime==kelimelist:
+                print("Tebrikler", "Cevap:",kelime)
+                bitis=1
+                break
+    if bitis==1:
+        break
+    if harf not in kelimelist:
+        sayac-=1
+        print("Kalan tahmin hakkiniz {}".format(sayac))
+        if sayac==5:
+            print("""
+                        ________
+                        |       |
+                        |       O
+                        |
+                        |
+                        |
+                      -----""")
+        if sayac==4:
+            print("""
+                        ________
+                        |       |
+                        |       O
+                        |       |
+                        |
+                        |
+                      -----""")
+        if sayac==3:
+            print("""
+                        ________
+                        |       |
+                        |       O
+                        |      <|
+                        |
+                        |
+                      -----""")
+        if sayac==2:
+            print("""
+                        ________
+                        |       |
+                        |       O
+                        |      <|>
+                        |
+                        |
+                      -----""")
+        if sayac==1:
+            print("""
+                        ________
+                        |       |
+                        |       O
+                        |      <|>
+                        |      (
+                        |
+                      -----""")
+        if sayac==0:
+            print("""
+                        ________
+                        |       |
+                        |       O
+                        |      <|>
+                        |      ( )
+                        |
+                      -----""", " :( OYUN BITTİ ÖLDÜNÜZ!!!","\n",
+                  "CEVAP:",kelime)
+         
+            
+            
