@@ -1,0 +1,53 @@
+## TO DO LIST
+yap_gorevler=[]
+tam_gorevler=[]
+print("""<<<<<<<<< ISLEMLER >>>>>>>>>>>
+1) Yapilacaklar listesine gorev eklemek.
+2) Yapilacaklar listesinden gorev silmek.
+3) Tamamlanan gorevi yapilanlar listesine aktarmak.
+4) Yapilanlar listesini goruntulemek.
+5) Yapilacaklar listesindeki tum gorevleri silmek.""")
+print("\n"*1)
+while True:
+    try:
+        print("\n")
+        print("////// Yapilacak Gorevler \\\\\\")
+        if len(yap_gorevler)==0:
+            print("Su an yapilacak bir goreviniz yok!")
+        for sıra, öğe in enumerate(yap_gorevler, 1):
+            print("{}. {}".format(sıra, öğe))
+        islem=input("Lutfen bir islem seciniz cikmak icin 'q' ya basiniz:")
+        if islem=="q" or islem=="Q":
+            print("program kapatiliyor...")
+            quit()
+        elif islem=="1":
+            gorev=input("Lutfen bir gorev giriniz:")
+            yap_gorevler.append(gorev)
+        elif islem=="2":
+            sil_gorev=int(input("Silmek istediginiz gorevin sira numarasi:"))
+            del yap_gorevler[sil_gorev-1]
+        elif islem=="3":
+            degistir=int(input("Lutfen tamamladiginiz gorevin numarsini giriniz:"))
+            cikan_gorev=yap_gorevler.pop(degistir-1)
+            tam_gorevler.append(cikan_gorev)
+        elif islem=="4":
+            print("////// Tamamlanan Gorevler \\\\\\")
+            if len(tam_gorevler)==0:
+                print("Su an tamamlanan bir goreviniz yok")
+            else:
+                for sıra1, öğe1 in enumerate(tam_gorevler, 1):
+                    print("{}. {}".format(sıra1, öğe1))
+        elif islem=="5":
+            print("Butun yapilacak gorevleriniz silinicek. Eminmisiniz!!!")
+            emin=input("Sil 's' , Vazgec 'v':")
+            if emin=="s" or emin=="S":
+                yap_gorevler.clear()
+            elif emin=="v" or "V":
+                continue
+            else:
+                continue
+        else:
+            print("Lutfen 'ISLEMLER listesinden bir islem seciniz!!!") 
+    except:
+        print("Yanlis giris, Lutfen giris degerlerinizi kontrol ediniz")
+
