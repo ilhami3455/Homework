@@ -2,35 +2,37 @@ baslik="ADAM ASMACA OYUNU"
 print(baslik.center(80,"*"))
 kelime="eindhoven"
 kelimelist=list(kelime)
-bul_kelime=[]
-sayac=6
-harflist=[]
-bitis=0
-for karakter in range(len(kelimelist)):
+bul_kelime=[]                                                       # bilinen her harfi tutacak olan liste.
+sayac=6                                                             # dongunun alti defa donmesi icin kullanilacak sayac
+harflist=[]                                                         # tahmin edilen her harfi tutacak olan liste
+bitis=0                                                             # cevap bilindiginde donguden cikmak icin kullanilacak.
+for karakter in range(len(kelimelist)):                             # bu dongu sorulan kelime kadar alttre '_' ekrana basmak icin.
     bul_kelime+="_"
 
 while sayac>0:
     print("\n","\t".expandtabs(20),*bul_kelime, sep="   ")
-    harf=input("\nLutfen bir harf tahmin ediniz.")
-    harflist+=harf
-    print("Harflistesi(",*harflist,")",sep="  ")
-    if harf.isdigit():
+    harf=input("\nLutfen bir harf tahmin ediniz.")                  # kulllanicidan bir harf isteniyor.
+    if harf=="" or harf==" ":                                       # bosluk yada hic bir giris yapilmassa dongu basa donuyor.
+        continue
+    if harf.isdigit():                                              # eyer kullanici harf degilde sayi girerse uyari verilip dongu basa donuyor.
         print("Lutfen sadece harf giriniz!!!")
         continue
-    if harf.isalpha():
-        for i in range(len(kelimelist)):
-            if kelimelist[i]==harf:
-                bul_kelime[i]=kelimelist[i]
-            elif bul_kelime==kelimelist:
+    harflist+=harf                                                  # girilen her harf harflistesine ekleniyor ve tekrar harflistesine ataniyor.
+    print("Harflistesi(",*harflist,")",sep="  ")                    # harflistesi kullaniciya gosteriliyor.
+    if harf.isalpha():                                              # eyer kullanici harf girerse dongu basliyor.
+        for i in range(len(kelimelist)):                            # burda for dongusuyle kelimelistenin icindeki karakter sayisinca donguyu dondurup 'i' nin icine aldik.
+            if kelimelist[i]==harf:                                 # burda kelime listesinin icindeki her karakteri harf ile eslesme kontrolu yaptik.
+                bul_kelime[i]=kelimelist[i]                         # eyer eslesme var ise eslesen harfi bul listesindeki konumuyla degistirmesini istedik.
+            elif bul_kelime==kelimelist:                            # burda kelime tam anlamiyla bul listesiyle eslesirse kelimeyi bildigini ekrana yazdirdik.
                 print("Tebrikler", "Cevap:",kelime)
                 bitis=1
                 break
     if bitis==1:
         break
-    if harf not in kelimelist:
-        sayac-=1
-        print("Kalan tahmin hakkiniz {}".format(sayac))
-        if sayac==5:
+    if harf not in kelimelist:                                      # burda soylenen harf kelimelistesinde yok ise yapilmasi gerekenleri yazdik.
+        sayac-=1                                                    # burda sayaci bir eksilttik ve kendine atadik, boylelikle 6 defa yanlis yapma hakki tanidik.
+        print("Kalan tahmin hakkiniz {}".format(sayac))             # kalan hakkini ekrana bastirdik.
+        if sayac==5:                                                # bu if bloklarinda sayacin 5,4 ve diger kalma durumlarinda adamin hangi adamada asili oldugunu bastirdik.
             print("""
                         ________
                         |       |
@@ -84,7 +86,7 @@ while sayac>0:
                         |      ( )
                         |
                       -----""", " :( OYUN BITTİ ÖLDÜNÜZ!!!","\n",
-                  "CEVAP:",kelime)
+                  "CEVAP:",kelime)                                          # burda kelime bilinmesse hakkinin bittigini ve cevabi ekrana yazdirdik.
          
             
             
