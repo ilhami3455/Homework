@@ -5,41 +5,41 @@ print(""" Oyun Kurallari:
 - Sayi ayni rakam iceremez.""")
 
 sayi="4279"
-sayiliste=list(sayi)
+sayiliste=list(sayi)                                                        # sayi listeye cevirildi.
 try:
-    while True:
-        degerD_yerD=0
+    while True:                                         
+        degerD_yerD=0   
         degerD_yerY=0
-        tahmin=input("Tahmininiz:")
-        if not tahmin.isdigit():
-            print("Lutfen sayi giriniz!!!")
+        tahmin=input("Tahmininiz:")                                         # bir tahminde bulunulmasi istendi.
+        if not tahmin.isdigit():                                            # tahmin rakamlardan olusmuyorsa yeniden sayi girilmesi istendi.
+            print("Lutfen sayi giriniz!!!")                                 
             continue
-        if len(tahmin)!=4:
+        if len(tahmin)!=4:                                                  # girilen sayi 4 basamaktan farkli ise kullanici uyarildi.
             print("Lutfen dort basamakli bir sayi giriniz.",end="\n")
             continue
-        elif "0" in tahmin:
+        elif "0" in tahmin:                                                 # girilen sayi sifir iceriyorsa kullanici uyarildi. 
             print("Lutfen '0' icermeyen bir sayi giriniz.",end="\n")
             continue
         else:
-            tahminlistesi=list(tahmin)
+            tahminlistesi=list(tahmin)                                      # eyer tahmin tum kosullara uyuyorsa bu blok calisiyor ve str olan tahmin listeye cevriliyor.
             sayac=0
-            for bir in range(4):
+            for bir in range(4):                                            # ic ice iki dongu olusturulup 0 ile 3 arasindaki rakamlar iki farkli degiskene atandi.
                 for iki in range(4):
-                    if bir!=iki:
-                        if tahminlistesi[bir]==tahminlistesi[iki]:
-                            sayac=1
+                    if bir!=iki:                                            # burada bu iki degisken arasinda birbirine esit olmayanlar eslestirildi. (0 1 ,1,3 gibi)
+                        if tahminlistesi[bir]==tahminlistesi[iki]:          # burada tahmin listesindeki her bir rakam digerleriyle eslestirildi.
+                            sayac=1                                         # eslesme var ise donguden cikildi.
             if sayac==1:
-                print("Sayiniz ayni rakam iceremez.",end="\n")
+                print("Sayiniz ayni rakam iceremez.",end="\n")              # ve ayni rakam birden fazla kullanildigi uyarisi yazdirildi.
                 continue
             else:
-                sayac1=0
-                for uc in range(4):
-                    for dort in range(4):
-                        if tahminlistesi[uc]==sayiliste[dort]:
-                            if uc==dort:
-                                degerD_yerD+=1
-                            else:
-                                degerD_yerY+=1
+                sayac1=0                            
+                for uc in range(4):                                         # burda yine 0 ile 3 arasindaki rakamlar iki farkli degiskene atandi.
+                    for dort in range(4):                       
+                        if tahminlistesi[uc]==sayiliste[dort]:              # bu sefer tahminlistesindeki her harf sayilar listesindeki ile karsilastirildi.
+                            if uc==dort:                                    # eyer uc ve dort birbirine esit ise tahmindeki ve sayidaki yer ve rakam dogru demektir denilip 
+                                degerD_yerD+=1                              # basta olusturdugumuz degeri bir arttirip tekrar kendisine atiyoruz.
+                            else:                                           # eyer rakamlar birbirini tutuyor ama ayni indeksde degillers ise deger dogru yer degiskenini
+                                degerD_yerY+=1                              # artirip tekrar kendisine atiyoruz
                 if tahmin==sayi:
                     print("TEBRIKLER!!!")
                     break
