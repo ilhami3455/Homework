@@ -7,14 +7,14 @@
 
 # 1. [1a, 1b, 1c, 2a, 2b, 2c, 3a, 3b, 3c]
 # 2. [a1, a2, a3, b1, b2, b3, c1, c2, c3]
-rakam="0123456789"
-rakamlar=list(rakam)
-harf="abcdefghij"
-harfler=list(harf)
+rakam="0123456789"                                                  # rakamlari iceren degisken olusturuldu.
+rakamlar=list(rakam)                                                # olusturulan degisken listeye cevirildi.
+harf="abcdefghij"                                                   # hardleri iceren degisken olusturuldu.
+harfler=list(harf)                                                  # olusturulan degisken listeye cevirildi.                                                
 
-##  YOL-1
-liste1=[x+y for x in rakamlar for y in harfler]
-liste2=[y+x for y in harfler for x in rakamlar]
+##  YOL-1                                                           # iki for ic ice kullanilip rakamlardaki ilk karakter harflerdeki her bir karakterle birlestirilip
+liste1=[x+y for x in rakamlar for y in harfler]                     # liste 1 in elemanlari olusturldu. sonra rakamlarin ikinci karakteri ile ayni islem tekrarlandi.
+liste2=[y+x for y in harfler for x in rakamlar]                     # burda ise bir onceki islemin tam tersi yapildi, ilk harf her bir rakam karakteri ile birlestirildi.
 print("liste1:", *liste1, end="\n"*2)
 print("liste2:", *liste2, end="\n"*2)
 
@@ -29,3 +29,4 @@ for x in harf:
     for y in rakam:
         liste2+=[x+y]
 print("liste2:",*liste2)
+
