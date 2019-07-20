@@ -12,7 +12,7 @@ for karakter in range(len(kelimelist)):                             # bu dongu s
 while sayac>0:
     print("\n","\t".expandtabs(20),*bul_kelime, sep="   ")
     harf=input("\nLutfen bir harf tahmin ediniz.")                  # kulllanicidan bir harf isteniyor.
-    if len(list(harf))>1:
+    if len(harf)>1:
         print("Lutfen bir harf girniz")
         continue
     if harf=="" or harf==" ":                                       # bosluk yada hic bir giris yapilmassa dongu basa donuyor.
